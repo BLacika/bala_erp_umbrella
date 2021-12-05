@@ -3,6 +3,7 @@ defmodule BalaErp.Base.Schema.Currency do
   import Ecto.Changeset
 
   @rates BalaErp.Base.Schema.Rate
+  @countries BalaErp.Base.Schema.Country
 
   schema "currencies" do
     field(:active, :boolean, default: false)
@@ -13,6 +14,7 @@ defmodule BalaErp.Base.Schema.Currency do
     field(:symbol_position, :string, default: "before")
 
     has_many(:rates, @rates)
+    has_many(:countries, @countries)
 
     timestamps()
   end
