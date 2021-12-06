@@ -25,6 +25,7 @@ defmodule BalaErp.Base.AddressTest do
 
     test "create_address/1 with valid data creates a address" do
       country = BalaErp.Base.CountryFixtures.country_fixture()
+
       valid_attrs = %{
         name: "some name",
         country_id: country.id,
@@ -47,6 +48,7 @@ defmodule BalaErp.Base.AddressTest do
 
     test "update_address/2 with valid data updates the address" do
       address = address_fixture()
+
       update_attrs = %{
         city: "some updated city",
         zip: "4567"
