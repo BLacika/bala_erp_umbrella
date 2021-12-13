@@ -18,7 +18,7 @@ defmodule BalaErp.Base.Schema.Partner do
     field :note, :string
     field :personal_company, :boolean, default: false
     field :small_business, :boolean, default: false
-    field :type, :string, default: "customer"
+    field :type, :string, default: "company"
     field :vat_number, :string
 
     has_many :bank_accounts, @bank_account
@@ -50,7 +50,7 @@ defmodule BalaErp.Base.Schema.Partner do
       :language_id
     ])
     |> validate_required([:name, :type])
-    |> validate_inclusion(:type, ["person", "customer", "vendor"])
+    |> validate_inclusion(:type, ["person", "company"])
     |> validate_vat_number()
   end
 
@@ -60,6 +60,7 @@ defmodule BalaErp.Base.Schema.Partner do
     case type do
       "person" ->
         changeset
+
       _ ->
         changeset
         |> validate_required([:vat_number])
@@ -67,4 +68,3 @@ defmodule BalaErp.Base.Schema.Partner do
     end
   end
 end
-
