@@ -3,17 +3,19 @@ defmodule BalaErp.Base.Schema.Language do
   import Ecto.Changeset
 
   @partner BalaErp.Base.Schema.Partner
+  @company BalaErp.Base.Schema.Company
 
   schema "languages" do
-    field :active, :boolean, default: false
-    field :code, :string
-    field :date_format, :string
-    field :decimal_separator, :string
-    field :name, :string
-    field :thousands_separator, :string
-    field :time_format, :string
+    field(:active, :boolean, default: false)
+    field(:code, :string)
+    field(:date_format, :string)
+    field(:decimal_separator, :string)
+    field(:name, :string)
+    field(:thousands_separator, :string)
+    field(:time_format, :string)
 
-    has_many :partners, @partner
+    has_many(:partners, @partner)
+    has_many(:companies, @company)
 
     timestamps()
   end

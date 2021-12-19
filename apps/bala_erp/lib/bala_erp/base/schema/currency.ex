@@ -5,18 +5,20 @@ defmodule BalaErp.Base.Schema.Currency do
   @rates BalaErp.Base.Schema.Rate
   @countries BalaErp.Base.Schema.Country
   @partner BalaErp.Base.Schema.Partner
+  @company BalaErp.Base.Schema.Company
 
   schema "currencies" do
-    field :active, :boolean, default: false
-    field :decimal_places, :integer, default: 2
-    field :label, :string
-    field :name, :string
-    field :symbol, :string
-    field :symbol_position, :string, default: "before"
+    field(:active, :boolean, default: false)
+    field(:decimal_places, :integer, default: 2)
+    field(:label, :string)
+    field(:name, :string)
+    field(:symbol, :string)
+    field(:symbol_position, :string, default: "before")
 
-    has_many :rates, @rates
-    has_many :countries, @countries
-    has_many :partners, @partner
+    has_many(:rates, @rates)
+    has_many(:countries, @countries)
+    has_many(:partners, @partner)
+    has_many(:companies, @company)
 
     timestamps()
   end
