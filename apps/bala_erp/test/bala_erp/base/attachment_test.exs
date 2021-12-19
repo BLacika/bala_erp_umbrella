@@ -47,12 +47,15 @@ defmodule BalaErp.Base.AttachmentTest do
 
     test "update_attachment/2 with valid data updates the attachment" do
       attachment = attachment_fixture()
+
       update_attrs = %{
         name: "some updated name",
         description: "some updated description"
       }
 
-      assert {:ok, %Attachment{} = attachment} = @context.update_attachment(attachment, update_attrs)
+      assert {:ok, %Attachment{} = attachment} =
+               @context.update_attachment(attachment, update_attrs)
+
       assert attachment.name == "some updated name"
       assert attachment.description == "some updated description"
     end

@@ -32,7 +32,7 @@ defmodule BalaErp.Base.UnitOfMeasure do
       %UnitOfMeasure{}
 
   """
-  def get_unit_of_measure!(id), do: Repo.get!(UnitOfMeasure, id) 
+  def get_unit_of_measure!(id), do: Repo.get!(UnitOfMeasure, id)
 
   @doc """
   Creates a unit_of_measure.
@@ -67,7 +67,7 @@ defmodule BalaErp.Base.UnitOfMeasure do
   def update_unit_of_measure(%UnitOfMeasure{} = unit_of_measure, attrs) do
     unit_of_measure
     |> UnitOfMeasure.changeset(attrs)
-    |> Repo.update()    
+    |> Repo.update()
   end
 
   @doc """

@@ -27,7 +27,9 @@ defmodule BalaErp.Base.UnitOfMeasureTest do
         name: "some name"
       }
 
-      assert {:ok, %UnitOfMeasure{} = unit_of_measure} = @context.create_unit_of_measure(valid_attrs)
+      assert {:ok, %UnitOfMeasure{} = unit_of_measure} =
+               @context.create_unit_of_measure(valid_attrs)
+
       assert unit_of_measure.name == "some name"
     end
 
@@ -37,24 +39,33 @@ defmodule BalaErp.Base.UnitOfMeasureTest do
 
     test "update_unit_of_measure/2 with valid data updates the unit_of_measure" do
       unit_of_measure = unit_of_measure_fixture()
+
       update_attrs = %{
         name: "some updated name"
       }
 
-      assert {:ok, %UnitOfMeasure{} = unit_of_measure} = @context.update_unit_of_measure(unit_of_measure, update_attrs)
+      assert {:ok, %UnitOfMeasure{} = unit_of_measure} =
+               @context.update_unit_of_measure(unit_of_measure, update_attrs)
+
       assert unit_of_measure.name == "some updated name"
     end
 
     test "update_unit_of_measure/2 with invalid data returns error changeset" do
       unit_of_measure = unit_of_measure_fixture()
-      assert {:error, %Ecto.Changeset{}} = @context.update_unit_of_measure(unit_of_measure, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               @context.update_unit_of_measure(unit_of_measure, @invalid_attrs)
+
       assert unit_of_measure == @context.get_unit_of_measure!(unit_of_measure.id)
     end
 
     test "delete_unit_of_measure/1 deletes the unit_of_measure" do
       unit_of_measure = unit_of_measure_fixture()
       assert {:ok, %UnitOfMeasure{}} = @context.delete_unit_of_measure(unit_of_measure)
-      assert_raise Ecto.NoResultsError, fn -> @context.get_unit_of_measure!(unit_of_measure.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        @context.get_unit_of_measure!(unit_of_measure.id)
+      end
     end
 
     test "change_unit_of_measure/1 returns a unit_of_measure changeset" do

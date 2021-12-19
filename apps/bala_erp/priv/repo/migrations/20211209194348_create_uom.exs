@@ -9,6 +9,5 @@ defmodule BalaErp.Repo.Migrations.CreateUom do
     end
 
     create unique_index(:uom, [:name])
-
   end
 end

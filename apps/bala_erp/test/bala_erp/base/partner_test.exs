@@ -39,6 +39,7 @@ defmodule BalaErp.Base.PartnerTest do
         name: "John Smith",
         type: "person"
       }
+
       company_attrs = %{
         name: "Test Company",
         type: "company",
@@ -56,7 +57,7 @@ defmodule BalaErp.Base.PartnerTest do
     test "create_partner/1 creates a company without vat_number and expecting error" do
       company_attrs = %{
         name: "Test Company",
-        type: "company",
+        type: "company"
       }
 
       assert {:error, %Ecto.Changeset{}} = @context.create_partner(company_attrs)
@@ -64,6 +65,7 @@ defmodule BalaErp.Base.PartnerTest do
 
     test "update_partner/2 with valid data updates the partner" do
       partner = partner_fixture()
+
       update_attrs = %{
         name: "Some updated name",
         cash_basis: true
