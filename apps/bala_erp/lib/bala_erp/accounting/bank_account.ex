@@ -95,7 +95,7 @@ defmodule BalaErp.Accounting.BankAccount do
       %Ecto.Changeset{data: %BankAccount{}}
 
   """
-  def change_bank_account(%BankAccount{} = bank_account, _attrs \\ %{}) do
-    BankAccount.changeset(bank_account)
+  def change_bank_account(%BankAccount{} = bank_account, attrs \\ %{}) do
+    BankAccount.changeset(bank_account, attrs)
   end
 end
